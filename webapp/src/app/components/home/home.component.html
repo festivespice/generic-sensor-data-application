@@ -1,0 +1,28 @@
+<!--Tabs-->
+<mat-tab-group>
+
+    <!--Current data-->
+    <mat-tab label="Today's data">
+      <!-- ng-template is used for lazy loading -->
+      <ng-template matTabContent>
+        <app-todays-data-tab></app-todays-data-tab>
+      </ng-template>
+    </mat-tab>
+  
+    <!--History data-->
+    <mat-tab label="History Data">
+      <!-- ng-template is used for lazy loading -->
+      <ng-template matTabContent>
+        <app-history-tab></app-history-tab>
+      </ng-template>
+    </mat-tab>
+  
+    <!--Sensor config data-->
+    <mat-tab label="Sensor Config Data">
+      <!-- ng-template is used for lazy loading -->
+      <ng-template matTabContent>
+        <app-sensor-config-tab></app-sensor-config-tab>
+      </ng-template>
+    </mat-tab>
+  
+  </mat-tab-group>

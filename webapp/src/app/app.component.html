@@ -1,0 +1,23 @@
+<!--Toolbar-->
+<mat-toolbar color="primary">
+  <span class="logo" [routerLink]="['/home']" routerLinkActive="active">Sensor group SENSORGROUPNAME</span>
+  <span class="icon-spacer"></span>
+  <div *ngIf="isLoggedIn" >
+    <span class="username">{{this.username}}</span>
+    <button mat-icon-button [matMenuTriggerFor]="accMenu" class="example-icon" aria-label="account icon-button">
+      <mat-icon>account_box</mat-icon>
+      <mat-menu #accMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="account()">Edit Account</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    </button>
+  </div>
+  <div *ngIf="!isLoggedIn">
+    <button class="auth-button" mat-raised-button (click)="signup()">Register</button>
+    <button class="auth-button" mat-stroked-button (click)="login()">Log in</button>
+  </div>
+</mat-toolbar>
+<router-outlet>
+  <!-- To understand what's being shown, understand how the router-outlet is used by the 'app-routing.module.ts' file-->
+</router-outlet>
+

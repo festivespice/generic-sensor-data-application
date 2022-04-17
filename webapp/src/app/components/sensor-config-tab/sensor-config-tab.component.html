@@ -1,0 +1,6 @@
+<button mat-raised-button color="primary" (click)="addSensorStart()">Add New Sensor</button>
+
+<p *ngFor="let sensor of sensors; index as i">
+  <app-sensor-config-card [currentSensor]="sensor" (sensorRemover)="removeSensor($event)" (sensorReplacer)="replaceSensor($event)">
+  </app-sensor-config-card>
+</p>

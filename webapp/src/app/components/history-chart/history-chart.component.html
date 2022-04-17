@@ -1,0 +1,18 @@
+<mat-grid-list cols="4" rowHeight="400px">
+    <mat-grid-tile colspan="2" rowspan="1">
+        <div width="400" height="400" class="data-graph">
+            <canvas #currentCanvasTemp>{{chartTemp}}</canvas> <!-- We have to use this '#' instead of a canvas ID, because it's realtive to the actual element instead of all elements-->
+            <!-- Also, it's minor, but switching between the tabs doesn't completely destroy the charts which causes a memory leak -->
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <div width="400" height="400" class="data-graph">
+            <canvas #currentCanvasHumid>{{chartHumid}}</canvas>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <div width="400" height="400" class="data-graph">
+            <canvas #currentCanvasPm>{{chartPm}}</canvas>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,14 @@
+.logo {
+    cursor: pointer;
+}
+
+.icon-spacer {
+    flex: 1 1 auto;
+}
+.auth-button {
+    margin: 0 20px;
+}
+
+.username {
+    font-size: 15px;
+}

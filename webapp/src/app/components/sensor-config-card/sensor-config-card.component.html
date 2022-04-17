@@ -1,0 +1,63 @@
+<mat-card class="sensor-card">
+  <mat-card-title>Sensor: {{this.currentSensor.sensor_name === '' ? this.currentSensor.sensor_ID : this.currentSensor.sensor_name}}</mat-card-title>
+  <mat-card-content>
+    <form *ngIf="formHidden" [formGroup]="configForm" (ngSubmit)="onFormSubmit()">
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Name of sensor</mat-label>
+          <input matInput formControlName="sensor_name">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>ID of sensor</mat-label>
+          <input matInput formControlName="sensor_ID">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Humidity interval, minutes</mat-label>
+          <input matInput formControlName="humidity_interval">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>P.M. interval, minutes</mat-label>
+          <input matInput formControlName="particulate_matter_interval">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Temperature interval, minutes</mat-label>
+          <input matInput formControlName="temperature_interval">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Humidity upper limit</mat-label>
+          <input matInput formControlName="humidity_upper_condition">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Humidity lower limit</mat-label>
+          <input matInput formControlName="humidity_lower_condition">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>P.M. upper limit</mat-label>
+          <input matInput formControlName="particulate_matter_upper_condition">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Temperature upper limit</mat-label>
+          <input matInput formControlName="temperature_upper_condition">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Temperature lower limit</mat-label>
+          <input matInput formControlName="temperature_lower_condition">
+        </mat-form-field>
+      </div>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="createForm()">{{this.editAction}}</button>
+    <button mat-button (click)="deleteCard()">{{this.deleteAction}}</button>
+  </mat-card-actions>
+</mat-card>

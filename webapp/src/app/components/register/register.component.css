@@ -1,0 +1,44 @@
+.wrapper {
+    position: relative;
+	top: 0;
+	opacity: 1;
+	padding: 60px 50px 40px 50px;
+	width: 50%;
+	background: #fff;
+	border-radius: 10px;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	z-index: 5;
+	max-width: 500px;
+    margin: auto;
+}
+
+mat-card-header {
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+
+mat-card-title {
+    font-size: 30px;
+    margin: 0;
+}
+
+.wrapper .row {
+    margin: auto;
+    text-align: center;
+}
+
+.wrapper mat-card {
+    padding: 45px 70px 55px;
+}
+
+.wrapper .btn-block {
+    width: 100%;
+}
+
+.wrapper mat-form-field {
+    width: 70%;
+}

@@ -1,0 +1,47 @@
+<form [formGroup]="historyForm"  (ngSubmit)="onFormSubmit()"> <!-- Only hide if the form was successful: [hidden]="success"-->
+  <mat-card>
+    <mat-card-header>
+      Form inputs
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="half">
+          <mat-form-field appearance="standard">
+            <mat-label>History data range</mat-label>
+            <mat-date-range-input [rangePicker]="dateRangePicker" required>
+              <input matStartDate
+                     placeholder="Start date"
+                     formControlName="start">
+              <input matEndDate
+                     placeholder="End date"
+                     formControlName="end">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matPrefix
+                                   [for]="dateRangePicker">
+            </mat-datepicker-toggle>
+            <mat-date-range-picker #dateRangePicker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+        <div class="half">
+          <mat-form-field appearance="fill">
+            <mat-label>Sensors</mat-label>
+            <mat-select [formControl]="sensors" multiple required>
+              <mat-option *ngFor="let sensor of sensorList" [value]="sensor">
+                {{sensor}}
+              </mat-option>
+            </mat-select>
+            <!-- <mat-error *ngIf="hasError('name', 'required')">
+              You need at least one sensor selected
+            </mat-error> -->
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [disabled]="historyForm.invalid" color="primary">Submit</button>
+      <!-- the disabled means that we don't want users to send a request unless the data is clean and full -->
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+<app-history-chart></app-history-chart>

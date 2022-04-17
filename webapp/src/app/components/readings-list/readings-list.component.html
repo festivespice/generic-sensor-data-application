@@ -1,0 +1,52 @@
+<!--Creates a table that depends on observed values. Note down how dataSource is used as the source of data and is filled up in the component.ts file.-->
+<!-- Our readings-list component calls the readings service for an observable that gets us all of our documents in the readings collection from the database.
+    This data is then mapped to the dataSource array and is used here.-->
+
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
+        <!-- Table columns -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.sensor_name}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.sensor_ID}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="reading time">
+            <mat-header-cell *matHeaderCellDef>Reading time</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.readingTime}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="temperature">
+            <mat-header-cell *matHeaderCellDef>Temperature</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.temperature}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="humidity">
+            <mat-header-cell *matHeaderCellDef>Humidity</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.humidity}}</mat-cell>
+        </ng-container>
+        <!--<ng-container matColumnDef="carbon dioxide">
+            <mat-header-cell *matHeaderCellDef>Carbon dioxide</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.carbon_dioxide}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="carbon monoxide">
+            <mat-header-cell *matHeaderCellDef>Carbon monoxide</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.carbon_monoxide}}</mat-cell>
+        </ng-container> -->
+        <ng-container matColumnDef="particulate matter">
+            <mat-header-cell *matHeaderCellDef>Particulate matter</mat-header-cell>
+            <mat-cell *matCellDef="let reading">{{reading.particulate_matter}}</mat-cell>
+        </ng-container>
+    
+    
+        <!-- Table rows -->
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <!-- 'columns' is the order that the cells should be rendered. We define displayedColumns in our component.ts file. -->
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[6, 12]"
+                 showFirstLastButtons 
+                 aria-label="Select page of sensor readings">
+  </mat-paginator> 
+
+
